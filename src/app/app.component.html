@@ -2,9 +2,9 @@
 
 <div class="example-container" >
 
-    <mat-spinner *ngIf="loading"></mat-spinner>
-<form novalidate>
 
+<form novalidate>
+    <div style="padding-top: 20px; padding-left: 20px" >
         <mat-form-field fxFlexFill>
           <input #busStopCode
            id="busStopCode" placeholder="Bus Stop Code"
@@ -19,10 +19,10 @@
         <mat-autocomplete #busStopCode="matAutocomplete" (optionSelected)="codeSeleted()">
               <mat-option *ngFor="let option of busStops" [value]="option.code"> {{option.code}}</mat-option>
         </mat-autocomplete>
-
+      </div>
 
 </form>
-
+<mat-spinner *ngIf="loading"></mat-spinner>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length >0">
 
     <!--- Note that these columns can be defined in any order.
