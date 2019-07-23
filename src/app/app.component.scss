@@ -1,0 +1,12 @@
+body{
+  background-color: lightslategray;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  background-color: lightslategray;
+  height: 100%;
+}
+.example-container > * {
+  width: 100%;
+}
