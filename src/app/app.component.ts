@@ -12,13 +12,17 @@ export class AppComponent implements OnInit {
 
   busCode: string;
   dataSource: Array<BusResponse> = [];
-  busStops: [];
+  busStops: any = [];
   loading = false;
   displayedColumns: string[] = ['busName', 'nextHour', 'waitTime'];
+  busStation: any;
+  savedCodes = [];
  constructor(private service: BusHourService) {}
   @ViewChild('busStopCode', { static: true })  busStopCode: ElementRef;
   ngOnInit(): void {
-
+    if ( localStorage.getItem('busCodes') !== null) {
+      this.savedCodes = JSON.parse( localStorage.getItem('busCodes'));
+    }
     const obs = fromEvent(this.busStopCode.nativeElement, 'keyup')
     .pipe (
         debounceTime(500),
@@ -36,11 +40,16 @@ export class AppComponent implements OnInit {
 
     obs.subscribe();
   }
+  refresh() {
+    this.codeSeleted();
+  }
   codeSeleted() {
     this.loading = true;
     this.service.getNextBus(this.busCode).subscribe(res => {
        this.dataSource = res;
        this.loading = false;
+       this.busStation = this.busStops.find(c => c.code === this.busCode);
+       this.busStops = [];
       }
     );
 
