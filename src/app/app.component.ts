@@ -53,9 +53,10 @@ export class AppComponent implements OnInit {
     this.tabGroup.selectedIndex = 0;
   }
   addtoFavorites() {
-         if (this.savedCodes.indexOf(this.busCode) === -1) {
+     if (this.savedCodes.indexOf(this.busCode) === -1) {
         this.savedCodes.push(this.busCode);
         localStorage.setItem('busCodes', JSON.stringify(this.savedCodes));
+        alert('Favorite added successfully');
      }
   }
   getClassName(element: any) {
