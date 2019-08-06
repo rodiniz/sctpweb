@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatButtonModule, MatAutocompleteModule, MatIconModule,
-   MatInputModule, MatProgressSpinnerModule, MatTableModule, MatToolbarModule} from '@angular/material';
+   MatInputModule, MatProgressSpinnerModule, MatTableModule, MatToolbarModule, MatTabsModule, MatListModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -34,7 +34,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    MatTabsModule,
+    MatListModule
 
   ],
   providers: [],
