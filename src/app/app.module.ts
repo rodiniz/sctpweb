@@ -8,6 +8,11 @@ import {MatFormFieldModule, MatButtonModule, MatAutocompleteModule, MatIconModul
    MatInputModule, MatProgressSpinnerModule, MatTableModule, MatToolbarModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +30,12 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    LayoutModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

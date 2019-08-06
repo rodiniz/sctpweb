@@ -43,6 +43,10 @@ export class AppComponent implements OnInit {
   refresh() {
     this.codeSeleted();
   }
+  getClassName(element: any) {
+    const busCode = element.busName.split('-')[0];
+    return 'linha_' + busCode;
+  }
   codeSeleted() {
     this.loading = true;
     this.service.getNextBus(this.busCode).subscribe(res => {
