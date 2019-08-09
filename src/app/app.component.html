@@ -17,6 +17,7 @@
                id="busStopCode" placeholder="Bus Stop Code"
               matInput name="busStopCode" type="text" [(ngModel)]="busCode" [matAutocomplete]="busStopCode"
               />
+              <mat-icon *ngIf="dataSource.length ===0" style="cursor: pointer" (click)="codeSeleted()" matSuffix>search</mat-icon>
               <mat-icon *ngIf="dataSource.length >0" style="cursor: pointer" (click)="addtoFavorites()" matSuffix>star</mat-icon>
               <mat-icon *ngIf="dataSource.length >0" style="cursor: pointer" (click)="refresh()" matSuffix>refresh</mat-icon>
               <mat-hint align="start">
@@ -24,17 +25,12 @@
               </mat-hint>
           </mat-form-field>
 
-          <mat-autocomplete #busStopCode="matAutocomplete" (optionSelected)="codeSeleted()">
-                <mat-option *ngFor="let option of busStops" [value]="option.code"> {{option.code}}</mat-option>
-          </mat-autocomplete>
+
         </div>
 
     </form>
     <mat-spinner *ngIf="loading"></mat-spinner>
-    <!--<div  *ngIf="dataSource.length >0 && busStation  !==null" style="margin-left:20px;">
-        Station: {{busStation.code}} - {{busStation.name}}
 
-    </div>-->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length >0" style="width:95%;margin-left:20px;">
 
 

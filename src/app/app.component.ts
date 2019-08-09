@@ -21,27 +21,10 @@ export class AppComponent implements OnInit {
   @ViewChild('tabGroup', {static: true})
   tabGroup: MatTabGroup;
  constructor(private service: BusHourService) {}
-  @ViewChild('busStopCode', { static: true })  busStopCode: ElementRef;
   ngOnInit(): void {
     if ( localStorage.getItem('busCodes') !== null) {
       this.savedCodes = JSON.parse( localStorage.getItem('busCodes'));
     }
-    const obs = fromEvent(this.busStopCode.nativeElement, 'keyup')
-    .pipe (
-        debounceTime(500),
-        tap(() => {
-          if (this.busStopCode.nativeElement.value.length < 2) {
-            return;
-          }
-          this.loading = true;
-          this.service.ObterParagens(this.busStopCode.nativeElement.value).subscribe(res => {
-              this.busStops =  res;
-              this.loading = false;
-          });
-        }),
-        );
-
-    obs.subscribe();
   }
   refresh() {
     this.codeSeleted();
