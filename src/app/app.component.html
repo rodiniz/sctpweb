@@ -17,7 +17,7 @@
                id="busStopCode" placeholder="Bus Stop Code"
               matInput name="busStopCode" type="text" [(ngModel)]="busCode" [matAutocomplete]="busStopCode"
               />
-              <mat-icon *ngIf="dataSource.length ===0" style="cursor: pointer" (click)="codeSeleted()" matSuffix>search</mat-icon>
+              <mat-icon  style="cursor: pointer" (click)="codeSeleted()" matSuffix>search</mat-icon>
               <mat-icon *ngIf="dataSource.length >0" style="cursor: pointer" (click)="addtoFavorites()" matSuffix>star</mat-icon>
               <mat-icon *ngIf="dataSource.length >0" style="cursor: pointer" (click)="refresh()" matSuffix>refresh</mat-icon>
               <mat-hint align="start">
