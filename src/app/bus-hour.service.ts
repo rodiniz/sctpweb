@@ -9,10 +9,7 @@ export class BusHourService {
 
   constructor(private http: HttpClient) { }
 
-  ObterParagens(busCode: string) {
-    return this.http.get<any>(`https://sctpapi.apphb.com/api/SCTP/ObterParagens?pesq=${busCode}`);
-  }
   getNextBus(station: string) {
-    return this.http.get<Array<BusResponse>>(`https://sctpapi.apphb.com/api/SCTP/GetTime?station=${station}`);
+    return this.http.get<Array<BusResponse>>(`https://bushourapi.herokuapp.com/api/getTime?BusStopCode=${station}`);
   }
 }
