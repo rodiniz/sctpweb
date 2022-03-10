@@ -3,7 +3,7 @@ import {  fromEvent } from 'rxjs';
 import { debounceTime, tap } from 'rxjs/operators';
 import { BusHourService } from './bus-hour.service';
 import { BusResponse } from './bus-response';
-import { MatTabGroup } from '@angular/material';
+import { MatTabGroup } from '@angular/material/tabs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
